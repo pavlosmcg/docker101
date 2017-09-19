@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4F60C11B-C7BA-4359-B29C-5AFA5DB3A859}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Assembler</RootNamespace>
+    <AssemblyName>Assembler</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assembler.cs" />
+    <Compile Include="Binary\BinaryAssembler.cs" />
+    <Compile Include="Binary\Hack\HackAddressInstructionAssembler.cs" />
+    <Compile Include="Binary\Hack\HackComputeBitsAssembler.cs" />
+    <Compile Include="Binary\Hack\HackComputeInstructionAssembler.cs" />
+    <Compile Include="Binary\AssemblyInstructionVisitor.cs" />
+    <Compile Include="Binary\Hack\IHackComputeBitsAssembler.cs" />
+    <Compile Include="Binary\IBinaryAssembler.cs" />
+    <Compile Include="Binary\IInstructionAssembler.cs" />
+    <Compile Include="IAssembler.cs" />
+    <Compile Include="Instructions\ComputeInstruction.cs" />
+    <Compile Include="Instructions\ComputeJumpType.cs" />
+    <Compile Include="Instructions\ComputeDestinationType.cs" />
+    <Compile Include="Instructions\AddressInstruction.cs" />
+    <Compile Include="Instructions\VariableInstruction.cs" />
+    <Compile Include="Instructions\IInstruction.cs" />
+    <Compile Include="Instructions\IInstructionVisitor.cs" />
+    <Compile Include="Instructions\LabelInstruction.cs" />
+    <Compile Include="Instructions\UnknownInstruction.cs" />
+    <Compile Include="Parsing\AddressInstructionParser.cs" />
+    <Compile Include="Parsing\ComputeDestinationParser.cs" />
+    <Compile Include="Parsing\ComputeJumpParser.cs" />
+    <Compile Include="Parsing\ComputeInstructionParser.cs" />
+    <Compile Include="Parsing\UnkownInstructionParser.cs" />
+    <Compile Include="Parsing\VariableInstructionParser.cs" />
+    <Compile Include="Parsing\IComputeDestinationParser.cs" />
+    <Compile Include="Parsing\IComputeJumpParser.cs" />
+    <Compile Include="Parsing\ISymbolParser.cs" />
+    <Compile Include="Parsing\LabelInstructionParser.cs" />
+    <Compile Include="Parsing\IInstructionParser.cs" />
+    <Compile Include="Parsing\SymbolParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sanitising\CommentRemover.cs" />
+    <Compile Include="Sanitising\ICommentRemover.cs" />
+    <Compile Include="Sanitising\ISanitiser.cs" />
+    <Compile Include="Sanitising\IWhitespaceRemover.cs" />
+    <Compile Include="Sanitising\Sanitiser.cs" />
+    <Compile Include="Sanitising\WhitespaceRemover.cs" />
+    <Compile Include="SymbolResolution\IsVariableVisitor.cs" />
+    <Compile Include="SymbolResolution\Hack\HackLabelResolver.cs" />
+    <Compile Include="SymbolResolution\Hack\HackVariableResolver.cs" />
+    <Compile Include="SymbolResolution\IsLabelVisitor.cs" />
+    <Compile Include="SymbolResolution\IVariableResolver.cs" />
+    <Compile Include="SymbolResolution\ILabelResolver.cs" />
+    <Compile Include="SymbolResolution\ISymbolResolver.cs" />
+    <Compile Include="SymbolResolution\Hack\HackSymbolResolver.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
