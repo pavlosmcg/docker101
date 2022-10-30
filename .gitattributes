@@ -1,1 +1,2 @@
-* text=auto eol=lf
+* text=false eol=lf
+*.sh -crlf
