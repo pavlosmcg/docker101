@@ -4,9 +4,6 @@ services:
     image: jetbrains/teamcity-server
     ports:
      - "8111:8111"
-    volumes:
-     - ./serverdata:/data/teamcity_server/datadir
-     - ./serverlogs:/opt/teamcity/logs
   agent:
     build: .
     environment:
