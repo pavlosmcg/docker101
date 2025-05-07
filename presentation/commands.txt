@@ -1,0 +1,41 @@
+https://github.com/pavlosmcg
+
+docker version
+
+docker run alpine echo "Ready to learn docker"
+
+docker run -p 5959:80 dockersamples/static-site
+localhost:5959/
+
+docker stop
+
+cd first-container
+show code
+show dockerfile
+docker build -t my-app
+
+docker run -d -p 5858:5000 my-app
+localhost:5858/
+
+docker run –it alpine
+docker exec -it e72928639a2a ls /bin
+docker exec -it e72928639a2a /bin/sh
+
+cd docker-compose
+show dockerfile
+show docker compose
+docker-compose build
+docker-compose up -d
+localhost:4545/
+
+cd build-and-test
+show the code
+docker run --rm --volume "$(pwd):/build" --workdir /build mono ./build.sh
+docker run --rm --volume "$(pwd):/build" --workdir /build mono ./tests.sh
+
+cd team-city
+show dockerfile
+show docker-compose
+docker-compose build
+docker-compose up -d
+docker-compose scale agent=3
