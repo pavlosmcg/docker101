@@ -1,4 +1,4 @@
-# Docker 101: Paul's docker introduction workshop
+# Docker 101: Pav's Docker introduction workshop
 
 ## You will need:
  - Wifi
@@ -9,5 +9,4 @@
 
 ## Pre-workshop script:
 Mac/Linux: `pre-workshop-unix.sh`
-
 Windows: `pre-workshop-windows.ps1`
